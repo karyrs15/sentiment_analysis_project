@@ -32,19 +32,20 @@ model = load_model('model_final.h5')
 with open('tokenizer.pickle', 'rb') as handle:
     tokenizer = pickle.load(handle)
 
-# test model with a new query
-tweet = "im happy!!!"
+while True:
+    # test model with a new query
+    tweet = input("Enter a tweet: ")
 
-# clean query text
-input_text = clean_text(tweet)
-# tokenize and pad query test as in training
-input_text = pad_sequences(tokenizer.texts_to_sequences([input_text]),
-                        maxlen = max_length)
+    # clean query text
+    input_text = clean_text(tweet)
+    # tokenize and pad query test as in training
+    input_text = pad_sequences(tokenizer.texts_to_sequences([input_text]),
+                            maxlen = max_length)
 
-# get model prediction
-prediction = model.predict([input_text])[0]
-# get decode prediction
-label = decode_prediction(prediction)
+    # get model prediction
+    prediction = model.predict([input_text])[0]
+    # get decode prediction
+    label = decode_prediction(prediction)
 
-print("Tweet: \n\n{}\n".format(tweet))
-print("Score: {} Label: {}".format(prediction, label))
+    print("Tweet: \n\n{}\n".format(tweet))
+    print("Score: {} Label: {}\n".format(prediction, label))
