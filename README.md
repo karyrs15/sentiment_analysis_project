@@ -3,6 +3,7 @@
 Machine Learning project for Sentiment Analysis on tweets using a Long Short-Term Memory network.
 
 Tutorial for this project available at: 
+https://medium.com/@karyrs1506/sentiment-analysis-on-tweets-with-lstm-22e3bbf93a61
 
 __Files included in this repository:__
 * ***setup_train.py***: python file for preprocessing data and model training.
